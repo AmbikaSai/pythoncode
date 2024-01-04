@@ -5,12 +5,8 @@ pool:
   vmImage: ubuntu-latest
 strategy:
   matrix:
-    Python38:
-      python.version: '3.8'
     Python39:
       python.version: '3.9'
-    Python310:
-      python.version: '3.10'
 
 steps:
 - task: UsePythonVersion@0
@@ -27,3 +23,5 @@ steps:
     pip install pytest pytest-azurepipelines
     pytest
   displayName: 'pytest'
+- script: |
+    python src/example.py
